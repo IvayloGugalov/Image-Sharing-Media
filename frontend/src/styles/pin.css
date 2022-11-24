@@ -1,0 +1,15 @@
+.pin::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(138, 138, 138, 0.3),
+    transparent 50%
+  );
+  border-radius: inherit;
+  content: "";
+  transition: opacity 1000ms;
+  z-index: 2;
+}
+
+.pin:hover::before {
+  opacity: 1;
+}
