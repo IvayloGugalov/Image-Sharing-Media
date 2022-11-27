@@ -144,7 +144,7 @@ const PinDetail = ({ user }) => {
             {pinDetail?.comments && (
               <h2 className='mt-5 text-2xl'>Comments</h2>
             )}
-            <div className='max-h-370 overflow-y-auto'>
+            <div className='max-h-370 '>
               {pinDetail?.comments?.map((item) => (
                 <div
                   className='

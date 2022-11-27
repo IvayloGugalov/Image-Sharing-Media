@@ -31,7 +31,7 @@ const Pin = ({ pin }) => {
       client
         .patch(id)
         .setIfMissing({ save: [] })
-        .insert('afet', 'save[-1]', [{
+        .insert('after', 'save[-1]', [{
           _key: uuidv4(),
           userId: user?.id,
           postedBy: {
@@ -67,7 +67,6 @@ const Pin = ({ pin }) => {
         before:opacity-0
         before:transition-opacity duration-1000
         before:absolute
-        before:w-full
         before:h-full
         hover:before:opacity-100'
     >

@@ -103,7 +103,6 @@ const Home = () => {
       </div>
       <div
         className='
-          pb-2
           flex-1
           h-screen'
         ref={scrollRef}>

@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import twilight from '../assets/Twilight.svg';
 import { Link } from 'react-router-dom';
 
 import '../styles/signUp.css';
 
 import { MdOutlineAccountCircle, MdOutlineEmail, MdOutlineVpnKey, MdArrowForward } from 'react-icons/md';
+import { validateRegistrationForm } from '../services/validation/formValidation';
 
 const SignUp = () => {
+
+  const [errors, setErrors] = useState([]);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    console.log(event)
+
+    const formData = event.currentTarget;
+    const formErrors = validateRegistrationForm(formData);
+    setErrors(formErrors);
+
+    console.log(errors);
+  }
+
   return (
     <div className='justify-center flex items-center '>
       {/* <img
@@ -42,7 +58,7 @@ const SignUp = () => {
           It's quick & simple
         </h3>
 
-        <form className='flex-col justify-end'  >
+        <form className='flex-col justify-end' onSubmit={handleSubmit}  >
           <div className='textbox' >
             <input
               className="input peer"
@@ -113,6 +129,14 @@ const SignUp = () => {
           </button>
 
         </form>
+
+        {errors.length > 0 && (
+          <div className='flex flex-col justify-start py-2 animate-slide-in '>
+            {errors.map((error, key) => (
+              <p key={key} className='text-red-500 w-48'>{error}</p>
+            ))}
+          </div>
+        )}
 
         <p
           className='

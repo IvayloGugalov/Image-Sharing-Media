@@ -87,6 +87,7 @@ const CreatePin = ({ user }) => {
   return (
     <div
       className='
+        relative
         flex
         flex-col
         justify-center
@@ -206,10 +207,12 @@ const CreatePin = ({ user }) => {
         {fields && (
           <p
             className='
+              absolute
+              -bottom-10
               text-red-500
-              mt-5
               font-semiBold
-              text-xl'
+              text-xl
+              slide-fwd'
           >
             Please fill in all the fields.
           </p>
